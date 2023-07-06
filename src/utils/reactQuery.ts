@@ -1,7 +1,9 @@
 import { useQuery, QueryClient } from "@tanstack/react-query";
 
-const getPosts = () =>
-  fetch("https://jsonplaceholder.typicode.com/posts?_start=0&_limit=1").then(
+type Posts = {};
+
+const getPosts = (): Promise<Posts[]> =>
+  fetch("https://jsonplaceholder.typicode.com/posts?_start=0&_limit=4").then(
     (res) => res.json()
   );
 

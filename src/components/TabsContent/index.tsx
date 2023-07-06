@@ -1,11 +1,13 @@
-import { FC } from "react";
+import React from "react";
 import EventTab from "../EventTab";
 
 interface ITabsHeaderProps {
   activeTab: number;
 }
 
-const TabsContent: FC<ITabsHeaderProps> = ({ activeTab }: ITabsHeaderProps) => {
+const TabsContent: React.FC<ITabsHeaderProps> = ({
+  activeTab,
+}): JSX.Element => {
   return (
     <>
       {activeTab === 2 && <EventTab />}

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { queryClient } from "../../utils/reactQuery";
 import { PostInterface } from "../../interfaces/post";
 
