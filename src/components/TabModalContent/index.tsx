@@ -6,25 +6,29 @@ import { EVENTS } from "../../utils/constants";
 export interface ITabsModalContentProps {
   eventType: string;
   handleEventChange: (event: string) => void;
-  handleModalToggle: () => void;
+  handleModalHide: () => void;
 }
 
 export default function TabsModalContent({
   eventType,
   handleEventChange,
-  handleModalToggle,
+  handleModalHide,
 }: ITabsModalContentProps) {
-  const ref = React.useRef(null);
-  const inputClassName = "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300";
-  const labelClassName = "capitalize cursor-pointer ml-2 text-gray-900";
+  const ref = React.useRef<HTMLDivElement | null>(null);
+  const inputClassName =
+    "w-4 cursor-pointer h-4 text-blue-600 bg-gray-100 border-gray-300 checked:bg-primary-blue";
+  const labelClassName =
+    "capitalize cursor-pointer ml-2 text-primary-grey text-base";
   const modalClassNames =
-    "flex flex-col transition-opacity ease-in duration-200 modal z-10 shadow-lg w-[200px] p-2 absolute left-1/2 -bottom-[90px] -translate-x-1/2 bg-white";
+    "flex flex-col rounded border-primary-grey-light cursor-auto transition-opacity ease-in duration-200 modal z-10 shadow-[0px_0px_20px_0px_rgb(0,0,0,25%)] w-[270px] px-5 py-2 absolute left-[85px] -bottom-[90px] bg-white";
 
-  useOnClickOutside(ref, handleModalToggle);
+  useOnClickOutside(ref, handleModalHide);
 
   return (
     <div className={modalClassNames} ref={ref}>
-      <h5 className="text-black text-left mb-2 capitalize">Фiльтри Подій</h5>
+      <h5 className="text-secondary-grey font-bold text-sm text-left mb-2 capitalize">
+        Фiльтри Подій
+      </h5>
 
       <div className="flex items-center mb-1">
         <input

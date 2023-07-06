@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import * as dayjs from "dayjs";
+import classnames from "classnames";
 
 interface IPostInterface {
   post: {
@@ -10,33 +11,29 @@ interface IPostInterface {
 }
 
 export const Post = ({ post }: IPostInterface) => {
-  const [className, setClassName] = useState("");
   const date = dayjs(new Date());
+  const [isNewPost, setNewPost] = useState(
+    post?.createdAt && date.diff(post?.createdAt, "seconds") <= 1
+  );
+  const postClassName = classnames({
+    "bg-blue-400 text-white": isNewPost,
+  });
 
   useEffect(() => {
-    const updatedClassName =
-      post?.createdAt && date.diff(post?.createdAt, "seconds") <= 1
-        ? "bg-blue-400 text-white"
-        : "";
-
-    setClassName(updatedClassName);
-  }, []);
-
-  useEffect(() => {
-    if (className.length) {
+    if (isNewPost) {
       const timeout = setInterval(() => {
-        setClassName("");
+        setNewPost(false);
       }, 1000);
 
       return () => {
         clearInterval(timeout);
       };
     }
-  }, [className]);
+  }, [isNewPost]);
 
   return (
     <div
-      className={`px-2 mb-2 border transition-bg duration-1000 ${className}`}
+      className={`px-2 mb-2 border transition-bg duration-1000 ${postClassName}`}
     >
       <h3>{post.title}</h3>
       <h4>{post.body}</h4>

@@ -28,22 +28,31 @@ export default function TabsHeaderItem({
 }: ITabsHeaderItemProps) {
   const [eventType, setEventType] = React.useState<string>(EVENTS.TYPES.ALL);
   const [isModalShow, setModalShow] = React.useState<boolean>(false);
+  const isActive = activeTab === tab.index;
   const spanClassName = classNames(
-    "tabsHeaderItem flex transition-all relative z-1 text-xs cursor-pointer font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-grey bg-grey-600 text-grey-600 bg-white",
+    "flex justify-center active:shadow-[inset_0_6px_3px_0px_rgba(0,0,0,0.1)] font-normal flex transition-all relative z-1 text-xs font-bold uppercase px-3 py-3 leading-normal text-grey bg-grey-600 text-grey-600",
     {
-      "bg-blue-600 text-white": activeTab === tab.index,
+      "bg-primary-grey-lighter text-white cursor-pointer": !isActive,
+      "cursor-default": isActive,
     }
   );
-
+  const eventTypeClassNames = classNames("full-w text-base text-primary-blue", {
+    "hover:underline": isActive,
+  });
+  const tabTitleClassNames = "normal-case text-base text-primary-black";
   const iconWrapClassNames = classNames(
-    "transition-transform pt-[1px] pl-[2px]",
+    "pl-1 flex items-center transition-transform text-primary-blue h-[25px]",
     {
-      "rotate-180 translate-y-[2px]": isModalShow,
+      "rotate-180": isModalShow,
     }
   );
 
-  const handleModalToggle = (): void => {
-    setModalShow(!isModalShow);
+  const handleModalHide = (): void => {
+    setModalShow(false);
+  };
+
+  const handleModalShow = (): void => {
+    isActive && setModalShow(true);
   };
 
   const handleEventChange = (event: string): void => {
@@ -52,19 +61,30 @@ export default function TabsHeaderItem({
   };
 
   return (
-    <li className="-mb-px mr-2 z-1 last:mr-0 flex-auto text-center relative ">
+    <li className="z-1 flex-auto text-center relative">
       <span
         className={spanClassName}
         onClick={() => onTabChange(tab.index)}
         role="tablist"
       >
-        <span className="px-2">{tab.title}</span>
-        <span className="px-2">{eventCounter}</span>
+        <span className={tabTitleClassNames}>{tab.title}</span>
+
+        {eventCounter && (
+          <>
+            <span className="px-2 text-primary-black flex items-center">
+              <span className="h-[2px] w-[2px] bg-black" />
+            </span>
+            <span className="text-base text-primary-black">{eventCounter}</span>
+          </>
+        )}
 
         {tab.useModal && (
           <>
-            <button className="flex" onClick={handleModalToggle}>
-              <span className="full-w min-w-[40px]">{eventType}</span>
+            <button
+              className="flex align-middle pl-2"
+              onClick={handleModalShow}
+            >
+              <span className={eventTypeClassNames}>{eventType}</span>
 
               <span className={iconWrapClassNames}>
                 <ArrowDownIcon />
@@ -78,7 +98,7 @@ export default function TabsHeaderItem({
                 <TabsModalContent
                   eventType={eventType}
                   handleEventChange={handleEventChange}
-                  handleModalToggle={handleModalToggle}
+                  handleModalHide={handleModalHide}
                 />
               </Modal>
             )}

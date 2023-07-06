@@ -51,7 +51,7 @@ const AddCommentForm: React.FC = () => {
         <div className="w-full lg:w-1/3">
           <button
             type="submit"
-            className="py-2 w-full cursor-pointer rounded bg-indigo-500 text-center text-indigo-50"
+            className="py-2 w-full cursor-pointer rounded bg-primary-blue text-center text-indigo-50"
           >
             Add
           </button>

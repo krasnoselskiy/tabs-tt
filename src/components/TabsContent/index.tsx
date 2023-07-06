@@ -9,7 +9,9 @@ const TabsContent: FC<ITabsHeaderProps> = ({ activeTab }: ITabsHeaderProps) => {
   return (
     <>
       {activeTab === 2 && <EventTab />}
-      {(activeTab === 1 || activeTab === 3) && <p>Поки що пусто</p>}
+      {(activeTab === 1 || activeTab === 3) && (
+        <p className="font-normal text-base">Поки що пусто</p>
+      )}
     </>
   );
 };
