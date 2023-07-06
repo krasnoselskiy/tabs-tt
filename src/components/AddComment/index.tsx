@@ -33,29 +33,28 @@ const AddCommentForm: React.FC = () => {
 
   return (
     <form
-      className="absolute left-0 right-3 bottom-0 bg-white px-4 py-3 mt-3 flex flex-wrap"
+      className="absolute left-0 right-0 bottom-0 bg-white px-8 py-5 max-[468px]:px-5 flex flex-wrap"
       onSubmit={handleAddComment}
     >
-      <div className="w-full pr-3 sm:w-3/4">
+      <div className="w-full absolute -top-[8px] h-[8px] z-1 left-0 right-0 bg-gradient-to-t opacity-[0.25] from-[#D9D9D9] to-transparent"></div>
+      <div className="w-[calc(100%-150px)] max-[468px]:w-full max-[468px]:mr-0 mr-[10px] lg:pr-3 mb-4 max-[768px]:mb-3">
         <input
           required
           type="text"
           name="comment"
-          placeholder="Add comment here"
+          placeholder="Додайте коментар"
           value={comment}
           onChange={handleCommentChange}
-          className="w-full h-10 rounded-md border border-[#e0e0e0] bg-white py-3 px-3 text-base text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          className="w-full h-10 rounded-sm border placeholder-grey-light border-grey-light bg-white py-[10px] px-[7px] text-xl text-primary-grey outline-none"
         />
       </div>
-      <div className="w-full sm:w-1/4">
-        <div className="w-full lg:w-1/3">
-          <button
-            type="submit"
-            className="py-2 w-full cursor-pointer rounded bg-primary-blue text-center text-indigo-50"
-          >
-            Add
-          </button>
-        </div>
+      <div className="w-[140px] max-[468px]:w-full">
+        <button
+          type="submit"
+          className="py-2 w-full cursor-pointer rounded-sm bg-primary-blue text-center font-bold text-white"
+        >
+          Додати
+        </button>
       </div>
     </form>
   );

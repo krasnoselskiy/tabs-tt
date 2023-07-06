@@ -10,7 +10,10 @@ export default function Modal({ children }: IModalProps) {
   if (!elRef.current) elRef.current = document.createElement("div");
 
   useEffect(() => {
-    const modalRoot = document.querySelector("#modal-root") as HTMLElement;
+    const id = window.innerWidth <= 768 ? "#modal-root-mobile" : "#modal-root";
+    const modalRoot = document.querySelector(id) as HTMLElement;
+
+    console.log(modalRoot);
 
     const el = elRef.current!;
     modalRoot.appendChild(el);

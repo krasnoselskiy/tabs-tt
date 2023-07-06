@@ -1,17 +1,19 @@
-import * as React from "react";
-import { Post } from "../Post";
+import React from "react";
+
+import Post from "../Post";
 import AddCommentForm from "../AddComment";
+import Error from "../Error";
+import Preloader from "../Preloader";
 
 import { PostInterface } from "../../interfaces/post";
-
 import { usePostsQuery } from "../../utils/reactQuery";
 
-const EventTab: React.FC = () => {
+const EventTab: React.FC = (): JSX.Element => {
   const { isLoading, error, data: posts } = usePostsQuery();
 
-  if (isLoading) return <h2>Loading...</h2>;
+  if (isLoading) return <Preloader />;
 
-  if (error) return <h2>{"An error has occurred: " + error}</h2>;
+  if (error) return <Error error={error} />;
 
   return (
     <>

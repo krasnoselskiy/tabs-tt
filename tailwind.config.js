@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
+        xl: "19px",
         base: "17px",
         sm: "15px",
       },
@@ -12,8 +13,8 @@ module.exports = {
         "primary-black": "#000",
         "primary-grey": "#2C3F52",
         "secondary-grey": "#6B7886",
-        "primary-grey-light": "#abb2ba",
-        "primary-grey-lighter": "#e9ebed",
+        "grey-light": "#abb2ba",
+        "grey-lighter": "#e9ebed",
       },
       height: {
         "10v": "10vh",

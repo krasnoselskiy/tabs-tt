@@ -20,20 +20,19 @@ export interface ITabsHeaderItemProps {
   onTabChange: (value: number) => void;
 }
 
-export default function TabsHeaderItem({
+const TabsHeaderItem = ({
   tab,
   eventCounter,
   activeTab,
   onTabChange,
-}: ITabsHeaderItemProps) {
+}: ITabsHeaderItemProps): JSX.Element => {
   const [eventType, setEventType] = React.useState<string>(EVENTS.TYPES.ALL);
   const [isModalShow, setModalShow] = React.useState<boolean>(false);
   const isActive = activeTab === tab.index;
   const spanClassName = classNames(
-    // active:shadow-[inset_0_6px_3px_0px_rgba(0,0,0,0.1)]
-    "flex justify-center  font-normal flex transition-all relative z-1 text-xs font-bold uppercase px-3 py-3 leading-normal text-grey bg-grey-600 text-grey-600",
+    "flex justify-center font-normal flex transition-all relative z-1 text-xs font-bold uppercase px-8 max-[768px]:px-4 py-[9px] leading-normal text-grey bg-grey-600 text-grey-600",
     {
-      "bg-primary-grey-lighter text-white cursor-pointer": !isActive,
+      "bg-grey-lighter text-white cursor-pointer": !isActive,
       "cursor-default": isActive,
     }
   );
@@ -62,7 +61,7 @@ export default function TabsHeaderItem({
   };
 
   return (
-    <li className="z-1 flex-auto text-center relative">
+    <li className="z-1 max-[768px]:min-w-[190px] text-center relative">
       <span
         className={spanClassName}
         onClick={() => onTabChange(tab.index)}
@@ -80,7 +79,7 @@ export default function TabsHeaderItem({
         )}
 
         {tab.useModal && (
-          <div className="relative">
+          <div className="relative max-[768px]:initial">
             <button
               className="flex align-middle pl-2"
               onClick={handleModalShow}
@@ -108,4 +107,6 @@ export default function TabsHeaderItem({
       </span>
     </li>
   );
-}
+};
+
+export default TabsHeaderItem;

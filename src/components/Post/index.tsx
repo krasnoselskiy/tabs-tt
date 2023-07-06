@@ -10,13 +10,13 @@ interface IPostInterface {
   };
 }
 
-export const Post = ({ post }: IPostInterface) => {
+const Post = ({ post }: IPostInterface): JSX.Element => {
   const date = dayjs(new Date());
   const [isNewPost, setNewPost] = useState(
     post?.createdAt && date.diff(post?.createdAt, "seconds") <= 1
   );
   const postClassName = classnames({
-    "bg-blue-400 text-white": isNewPost,
+    "bg-primary-blue text-white": isNewPost,
   });
 
   useEffect(() => {
@@ -33,10 +33,12 @@ export const Post = ({ post }: IPostInterface) => {
 
   return (
     <div
-      className={`px-2 mb-2 border transition-bg duration-1000 ${postClassName}`}
+      className={`px-8 py-5 max-[468px]:px-5 max-[468px]:py-3 border-[1px] border-b-grey-lighter transition-bg duration-1000 ${postClassName}`}
     >
-      <h3>{post.title}</h3>
-      <h4>{post.body}</h4>
+      <h3 className="text-base font-bold">{post.title}</h3>
+      <p className="text-base font-thin">{post.body}</p>
     </div>
   );
 };
+
+export default Post;
