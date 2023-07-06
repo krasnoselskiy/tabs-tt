@@ -30,7 +30,8 @@ export default function TabsHeaderItem({
   const [isModalShow, setModalShow] = React.useState<boolean>(false);
   const isActive = activeTab === tab.index;
   const spanClassName = classNames(
-    "flex justify-center active:shadow-[inset_0_6px_3px_0px_rgba(0,0,0,0.1)] font-normal flex transition-all relative z-1 text-xs font-bold uppercase px-3 py-3 leading-normal text-grey bg-grey-600 text-grey-600",
+    // active:shadow-[inset_0_6px_3px_0px_rgba(0,0,0,0.1)]
+    "flex justify-center  font-normal flex transition-all relative z-1 text-xs font-bold uppercase px-3 py-3 leading-normal text-grey bg-grey-600 text-grey-600",
     {
       "bg-primary-grey-lighter text-white cursor-pointer": !isActive,
       "cursor-default": isActive,
@@ -79,7 +80,7 @@ export default function TabsHeaderItem({
         )}
 
         {tab.useModal && (
-          <>
+          <div className="relative">
             <button
               className="flex align-middle pl-2"
               onClick={handleModalShow}
@@ -102,7 +103,7 @@ export default function TabsHeaderItem({
                 />
               </Modal>
             )}
-          </>
+          </div>
         )}
       </span>
     </li>

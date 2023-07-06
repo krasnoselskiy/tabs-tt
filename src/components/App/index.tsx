@@ -5,7 +5,7 @@ import Tabs from "../Tabs";
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="container py-4 m-auto max-w-xl">
+      <div className="container px-4 w-full m-auto max-w-[732px]">
         <Tabs />
       </div>
     </QueryClientProvider>

@@ -20,9 +20,9 @@ export default function TabsModalContent({
   const labelClassName =
     "capitalize cursor-pointer ml-2 text-primary-grey text-base";
   const modalClassNames =
-    "flex flex-col rounded border-primary-grey-light cursor-auto transition-opacity ease-in duration-200 modal z-10 shadow-[0px_0px_20px_0px_rgb(0,0,0,25%)] w-[270px] px-5 py-2 absolute left-[85px] -bottom-[90px] bg-white";
+    "flex flex-col rounded border-primary-grey-light cursor-auto transition-opacity ease-in duration-200 modal z-10 shadow-[0px_0px_20px_0px_rgb(0,0,0,25%)] w-[270px] px-5 py-2 absolute left-[10px] -bottom-[100px] bg-white";
 
-  useOnClickOutside(ref, handleModalHide);
+  useOnClickOutside(ref, handleModalHide, "mouseup");
 
   return (
     <div className={modalClassNames} ref={ref}>
