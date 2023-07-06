@@ -1,12 +1,12 @@
-import { FC } from "react";
+import * as React from "react";
 import { Post } from "../Post";
-import { AddCommentForm } from "../AddComment";
+import AddCommentForm from "../AddComment";
 
 import { PostInterface } from "../../interfaces/post";
 
 import { usePostsQuery } from "../../utils/reactQuery";
 
-const EventTab: FC = () => {
+const EventTab: React.FC = () => {
   const { isLoading, error, data: posts } = usePostsQuery();
 
   if (isLoading) return <h2>Loading...</h2>;

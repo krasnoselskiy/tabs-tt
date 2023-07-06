@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
-import { PostInterface } from "../../interfaces/post";
 import * as dayjs from "dayjs";
 
-export const Post = ({ post }: PostInterface) => {
+interface IPostInterface {
+  post: {
+    createdAt?: Date;
+    title: string;
+    body: string;
+  };
+}
+
+export const Post = ({ post }: IPostInterface) => {
   const [className, setClassName] = useState("");
   const date = dayjs(new Date());
 

@@ -1,10 +1,9 @@
-import { useState } from "react";
-// import uuid from "uuid";
+import * as React from "react";
 import { queryClient } from "../../utils/reactQuery";
 import { PostInterface } from "../../interfaces/post";
 
-export function AddCommentForm() {
-  const [comment, setComment] = useState("");
+const AddCommentForm: React.FC = () => {
+  const [comment, setComment] = React.useState<string>("");
 
   const handleCommentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setComment(e.target.value);
@@ -14,9 +13,9 @@ export function AddCommentForm() {
     e.preventDefault();
 
     if (comment) {
-      const previousValue: PostInterface[] = queryClient.getQueryData([
-        "posts",
-      ]);
+      const previousValue: PostInterface[] | undefined =
+        queryClient.getQueryData(["posts"]);
+
       const newPosts: PostInterface[] = [
         {
           body: comment,
@@ -24,7 +23,7 @@ export function AddCommentForm() {
           title: "Коментар",
           createdAt: new Date(),
         },
-        ...previousValue,
+        ...(previousValue ? previousValue : []),
       ];
 
       queryClient.setQueryData(["posts"], newPosts);
@@ -60,4 +59,6 @@ export function AddCommentForm() {
       </div>
     </form>
   );
-}
+};
+
+export default AddCommentForm;

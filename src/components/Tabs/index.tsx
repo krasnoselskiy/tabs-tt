@@ -1,7 +1,7 @@
-import { FC, useState } from "react";
+import * as React from "react";
+
 import TabsContent from "../TabsContent";
 import TabsHeaderItem from "../TabsHeaderItem";
-// import Modal from "../Modal";
 
 interface TabsProps {}
 
@@ -22,8 +22,8 @@ const tabsList = [
   },
 ];
 
-const Tabs: FC<TabsProps> = () => {
-  const [activeTab, setActiveTab] = useState(2);
+const Tabs: React.FC<TabsProps> = () => {
+  const [activeTab, setActiveTab] = React.useState<number>(2);
 
   const handleTabChange = (index: number) => {
     setActiveTab(index);
