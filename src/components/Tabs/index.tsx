@@ -8,7 +8,7 @@ const Tabs: React.FC = (): JSX.Element => {
   const [activeTab, setActiveTab] = React.useState<number>(2);
   const tabsList = getTabList();
 
-  const handleTabChange = (index: number) => {
+  const handleTabChange = (index: number): void => {
     setActiveTab(index);
   };
 
@@ -30,7 +30,7 @@ const Tabs: React.FC = (): JSX.Element => {
         <div id="modal-root-mobile" className="relative"></div>
 
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full shadow-lg rounded">
-          <div className="flex-auto h-85v overflow-y-auto">
+          <div className="flex-auto h-90v overflow-y-auto">
             <TabsContent activeTab={activeTab} />
           </div>
         </div>

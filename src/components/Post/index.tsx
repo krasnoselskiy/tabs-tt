@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 import * as dayjs from "dayjs";
 import classnames from "classnames";
 
@@ -12,7 +12,7 @@ interface IPostInterface {
 
 const Post = ({ post }: IPostInterface): JSX.Element => {
   const date = dayjs(new Date());
-  const [isNewPost, setNewPost] = useState(
+  const [isNewPost, setNewPost] = useState<boolean | undefined>(
     post?.createdAt && date.diff(post?.createdAt, "seconds") <= 1
   );
   const postClassName = classnames({
@@ -41,4 +41,4 @@ const Post = ({ post }: IPostInterface): JSX.Element => {
   );
 };
 
-export default Post;
+export default memo(Post);

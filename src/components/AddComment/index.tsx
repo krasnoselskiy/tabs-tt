@@ -2,7 +2,7 @@ import React from "react";
 import { queryClient } from "../../utils/reactQuery";
 import { PostInterface } from "../../interfaces/post";
 
-const AddCommentForm: React.FC = () => {
+const AddCommentForm: React.FC = (): JSX.Element => {
   const [comment, setComment] = React.useState<string>("");
 
   const handleCommentChange = (e: React.ChangeEvent<HTMLInputElement>) => {

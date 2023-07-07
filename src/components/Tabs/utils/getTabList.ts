@@ -1,4 +1,11 @@
-export const getTabList = () => {
+type Tab = {
+  index: number;
+  title: string;
+  useModal?: boolean;
+  eventCounter?: number;
+};
+
+export const getTabList = (): Tab[] => {
   return [
     {
       index: 1,

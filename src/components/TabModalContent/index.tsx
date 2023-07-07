@@ -9,18 +9,18 @@ export interface ITabsModalContentProps {
   handleModalHide: () => void;
 }
 
-export default function TabsModalContent({
+const TabsModalContent = ({
   eventType,
   handleEventChange,
   handleModalHide,
-}: ITabsModalContentProps) {
+}: ITabsModalContentProps): JSX.Element => {
   const ref = React.useRef<HTMLDivElement | null>(null);
   const inputClassName =
     "w-4 cursor-pointer h-4 text-blue-600 bg-gray-100 border-gray-300 checked:bg-primary-blue";
   const labelClassName =
     "capitalize cursor-pointer ml-2 text-primary-grey text-base";
   const modalClassNames =
-    "flex flex-col rounded border-grey-light cursor-auto transition-opacity ease-in duration-200 modal z-10 shadow-[0px_0px_20px_0px_rgb(0,0,0,25%)] w-[270px] max-[768px]:left-0 max-[768px]:w-[170px] px-5 py-2 absolute left-[10px] -bottom-[100px] bg-white";
+    "flex flex-col rounded border-grey-light cursor-auto transition-opacity ease-in duration-200 modal z-10 shadow-[0px_0px_20px_0px_rgb(0,0,0,25%)] w-[270px] max-[768px]:left-0 max-[768px]:w-[100%] px-5 py-2 absolute left-[10px] -bottom-[100px] bg-white";
 
   useOnClickOutside(ref, handleModalHide, "mouseup");
 
@@ -68,4 +68,6 @@ export default function TabsModalContent({
       </div>
     </div>
   );
-}
+};
+
+export default TabsModalContent;
