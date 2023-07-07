@@ -30,7 +30,7 @@ const Tabs: React.FC = (): JSX.Element => {
         <div id="modal-root-mobile" className="relative"></div>
 
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full shadow-lg rounded">
-          <div className="flex-auto h-90v overflow-y-auto">
+          <div className="flex-auto h-[calc(100vh-70px)] overflow-y-auto">
             <TabsContent activeTab={activeTab} />
           </div>
         </div>

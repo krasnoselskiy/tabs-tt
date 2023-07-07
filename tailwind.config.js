@@ -16,10 +16,6 @@ module.exports = {
         "grey-light": "#abb2ba",
         "grey-lighter": "#e9ebed",
       },
-      height: {
-        "90v": "90vh",
-        "100v": "100vh",
-      },
     },
   },
   plugins: [require("@tailwindcss/forms")],

@@ -37,7 +37,7 @@ const AddCommentForm: React.FC = (): JSX.Element => {
       onSubmit={handleAddComment}
     >
       <div className="w-full absolute -top-[8px] h-[8px] z-1 left-0 right-0 bg-gradient-to-t opacity-[0.25] from-[#D9D9D9] to-transparent"></div>
-      <div className="w-[calc(100%-150px)] max-[468px]:w-full max-[468px]:mr-0 mr-[10px] lg:pr-3 mb-4 max-[768px]:mb-3">
+      <div className="w-[calc(100%-150px)] max-[468px]:w-full max-[468px]:mr-0 mr-[10px] lg:pr-3 mb-0 max-[768px]:mb-3">
         <input
           required
           type="text"
