@@ -3,22 +3,22 @@ import { useOnClickOutside } from "usehooks-ts";
 
 import { EVENTS } from "../../utils/constants";
 
-export interface ITabsModalContentProps {
+export interface IModalContentProps {
   eventType: string;
   handleEventChange: (event: string) => void;
   handleModalHide: () => void;
 }
 
-const TabsModalContent = ({
+const ModalContent = ({
   eventType,
   handleEventChange,
   handleModalHide,
-}: ITabsModalContentProps): JSX.Element => {
+}: IModalContentProps): JSX.Element => {
   const ref = React.useRef<HTMLDivElement | null>(null);
   const inputClassName =
     "w-4 cursor-pointer h-4 text-blue-600 bg-gray-100 border-gray-300 checked:bg-primary-blue";
   const labelClassName =
-    "capitalize cursor-pointer ml-2 text-primary-grey text-base";
+    "capitalize cursor-pointer ml-2 text-grey-primary text-base";
   const modalClassNames =
     "flex flex-col rounded border-grey-light cursor-auto transition-opacity ease-in duration-200 modal z-10 shadow-[0px_0px_20px_0px_rgb(0,0,0,25%)] w-[270px] max-[768px]:left-0 max-[768px]:w-[100%] px-5 py-2 absolute left-[10px] -bottom-[100px] bg-white";
 
@@ -26,7 +26,7 @@ const TabsModalContent = ({
 
   return (
     <div className={modalClassNames} ref={ref}>
-      <h5 className="text-secondary-grey font-bold text-sm text-left mb-2 normal-case">
+      <h5 className="mb-2 text-sm font-bold text-left normal-case text-grey-secondary">
         Фiльтри подій
       </h5>
 
@@ -70,4 +70,4 @@ const TabsModalContent = ({
   );
 };
 
-export default TabsModalContent;
+export default ModalContent;

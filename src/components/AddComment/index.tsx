@@ -33,7 +33,7 @@ const AddCommentForm: React.FC = (): JSX.Element => {
 
   return (
     <form
-      className="absolute left-0 right-0 bottom-0 bg-white px-8 py-5 max-[468px]:px-5 flex flex-wrap"
+      className="absolute left-[1px] right-[14px] bottom-0 bg-white px-8 py-5 max-[468px]:px-5 flex flex-wrap"
       onSubmit={handleAddComment}
     >
       <div className="w-full absolute -top-[8px] h-[8px] z-1 left-0 right-0 bg-gradient-to-t opacity-[0.25] from-[#D9D9D9] to-transparent"></div>
@@ -45,13 +45,13 @@ const AddCommentForm: React.FC = (): JSX.Element => {
           placeholder="Додайте коментар"
           value={comment}
           onChange={handleCommentChange}
-          className="w-full h-10 rounded-sm border placeholder-grey-light border-grey-light bg-white py-[10px] px-[7px] text-xl text-primary-grey outline-none"
+          className="w-full h-10 rounded-sm border placeholder-grey-light border-grey-light bg-white py-[10px] px-[7px] text-xl text-grey-primary outline-none"
         />
       </div>
       <div className="w-[140px] max-[468px]:w-full">
         <button
           type="submit"
-          className="py-2 w-full cursor-pointer rounded-sm bg-primary-blue text-center font-bold text-white"
+          className="w-full py-2 font-bold text-center text-white rounded-sm cursor-pointer bg-primary-blue"
         >
           Додати
         </button>

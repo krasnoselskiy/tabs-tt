@@ -9,12 +9,14 @@ module.exports = {
         sm: "15px",
       },
       colors: {
+        grey: {
+          primary: "#2C3F52",
+          secondary: "#6B7886",
+          light: "#abb2ba",
+          lighter: "#e9ebed",
+        },
         "primary-blue": "#00a1f1",
         "primary-black": "#000",
-        "primary-grey": "#2C3F52",
-        "secondary-grey": "#6B7886",
-        "grey-light": "#abb2ba",
-        "grey-lighter": "#e9ebed",
       },
     },
   },

@@ -1,7 +1,7 @@
 import React from "react";
 
 import TabsContent from "../TabsContent";
-import TabsHeaderItem from "../TabsHeaderItem";
+import TabsHeaderItem from "../HeaderItem";
 import { getTabList } from "./utils/getTabList";
 
 const Tabs: React.FC = (): JSX.Element => {
@@ -29,8 +29,8 @@ const Tabs: React.FC = (): JSX.Element => {
 
         <div id="modal-root-mobile" className="relative"></div>
 
-        <div className="relative flex flex-col min-w-0 break-words bg-white w-full shadow-lg rounded">
-          <div className="flex-auto h-[calc(100vh-70px)] overflow-y-auto">
+        <div className="relative flex flex-col w-full min-w-0 break-words bg-white rounded shadow-lg">
+          <div className="flex-auto h-[calc(100vh-70px)] pb-[80px] overflow-y-auto">
             <TabsContent activeTab={activeTab} />
           </div>
         </div>

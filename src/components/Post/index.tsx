@@ -1,6 +1,8 @@
-import { useEffect, useState, memo } from "react";
-import * as dayjs from "dayjs";
+import { memo } from "react";
 import classnames from "classnames";
+
+import { getTimeBetweenDates } from "./utils/getTimeBetweenDates";
+import { useNewPost } from "./hooks/isNewPost";
 
 interface IPostInterface {
   post: {
@@ -11,25 +13,11 @@ interface IPostInterface {
 }
 
 const Post = ({ post }: IPostInterface): JSX.Element => {
-  const date = dayjs(new Date());
-  const [isNewPost, setNewPost] = useState<boolean | undefined>(
-    post?.createdAt && date.diff(post?.createdAt, "seconds") <= 1
-  );
+  const { seconds } = getTimeBetweenDates(post?.createdAt, new Date());
+  const [isNewPost] = useNewPost(seconds);
   const postClassName = classnames({
     "bg-primary-blue text-white": isNewPost,
   });
-
-  useEffect(() => {
-    if (isNewPost) {
-      const timeout = setInterval(() => {
-        setNewPost(false);
-      }, 1000);
-
-      return () => {
-        clearInterval(timeout);
-      };
-    }
-  }, [isNewPost]);
 
   return (
     <div
